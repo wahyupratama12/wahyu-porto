@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindMate - Mood & Habit Tracker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      background-color: #5c5c5c;
+      width: 100%;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    h1{
+        color: #c2c2c2;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    select, input[type="text"], button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #fe6363;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #357ab8;
+    }
+    .log {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MindMate</h1>
+    <p>Simpan catatan Mood mu di sini!</p>
+  </header>
+
+  <div class="container">
+    <h2>📅 Pilih Keadaan Mood Mu</h2>
+    <select id="mood">
+      <option value="">Pilih mood</option>
+      <option value="😄 Senang">😄 Senang</option>
+      <option value="😐 Biasa saja">😐 Biasa saja</option>
+      <option value="😔 Sedih">😔 Sedih</option>
+      <option value="😡 Marah">😡 Marah</option>
+      <option value="😩 Stres">😩 Stres</option>
+      <option value="🔥 ga karuan">🔥 ga karuan</option>
+      <option value="😢letih dan lesu">😢 letih dan lesu</option>
+
+    </select>
+
+    <h2>❓ Alasan mood mu?</h2>
+    <input type="text" id="habit" placeholder="Contoh: karena sekolah di penus" />
+
+    <button onclick="saveData()">simpan catatan mood mu</button>
+
+    <div class="log" id="log"></div>
+  </div>
+
+  <script>
+    function saveData() {
+      const mood = document.getElementById('mood').value;
+      const habit = document.getElementById('habit').value;
+      const log = document.getElementById('log');
+
+      if (!mood && !habit) {
+        alert("Harap isi mood atau kebiasaan!");
+        return;
+      }
+
+      const now = new Date();
+      const date = now.toLocaleDateString();
+      const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      const entry = `📅 <strong>${date}</strong> 🕒 ${time}<br>🧠 Mood: ${mood || 'Tidak dicatat'}<br>📝 Habit: ${habit || 'Tidak dicatat'}`;
+
+      let entries = JSON.parse(localStorage.getItem('mindmate_entries')) || [];
+      entries.push(entry);
+      localStorage.setItem('mindmate_entries', JSON.stringify(entries));
+
+      renderLog();
+      document.getElementById('mood').value = "";
+      document.getElementById('habit').value = "";
+    }
+
+    function renderLog() {
+      const log = document.getElementById('log');
+      const entries = JSON.parse(localStorage.getItem('mindmate_entries')) || [];
+      log.innerHTML = entries.reverse().slice(0, 5).join('<hr>');
+    }
+
+    renderLog();
+  </script>
+</body>
+
+<footer>    &copy; 2025 Wahyu Pratama — SMK Plus Pelita Nusantara
+</footer>
+
+</html>

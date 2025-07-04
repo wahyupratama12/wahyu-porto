@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Portofolio Wahyu</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <button id="theme-toggle" aria-label="Ganti tema">🌗swicth mode</button>
+        <nav aria-label="Primary navigation">
+            <div class="logo" tabindex="0">My Portofolio</div>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>  
+</header>    
+
+</nav>
+
+<main class="container" tabindex="0">
+
+    <!-- About Section -->
+    <section id="about" class="about-me" aria-label="About Me Section">
+        <h1>Halo bro! Nama saya <b>Wahyu Pratama</b></h1>
+        <p>
+            Selamat datang di situs web portofolio pribadi saya! Saya adalah seorang siswa di <b>SMK Plus Pelita Nusantara</b>
+            yang senang membaca buku dan belajar. Saya juga bisa membuat website menggunakan <b>HTML, CSS, dan JavaScript</b>.
+        </p>
+        <p>
+            Saya percaya bahwa teknologi akan mengubah hidup saya, maka dari itu saya terus belajar pemrograman untuk membangun masa depan yang lebih baik.
+        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" aria-label="Skills Section">
+        <h2>Skills</h2>
+        <div class="skill-list" role="list">
+            <span class="skill" role="listitem">🔥 HTML</span>
+            <span class="skill" role="listitem">🎨 CSS3</span>
+            <span class="skill" role="listitem">⚙️ JavaScript</span>
+            <span class="skill" role="listitem">📱 Responsif Design</span>
+            <span class="skill" role="listitem">🪛 Git & GitHub</span>
+            <span class="skill" role="listitem">📃 Bootstrap</span>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project" aria-label="Project Section">
+        <h2>Projects</h2>
+        <div class="project-list">
+
+            <article class="project-item" tabindex="0">
+                <h3>Portofolio Website</h3>
+                <p>Website pribadi yang menampilkan profil, keterampilan, dan proyek menggunakan HTML, CSS, dan JavaScript.</p>
+                <a href="#" class="project-link" target="_blank" rel="noopener">🎗️ Lihat Projek</a>
+            </article>
+
+            <article class="project-item" tabindex="0">
+                <h3>jam digital</h3>
+                <p>Aplikasi yang memungkinkan pengguna membuat, menandai, dan menghapus tugas dengan interaktif.</p>
+                <a href="jam.digital.html" class="project-link" target="_blank" rel="noopener">⌚ Lihat Projek</a>
+            </article>
+
+            <article class="project-item" tabindex="0">
+                <h3>mood tracker</h3>
+                <p>Catat Mood Mu!</p>
+                <a href="new.project.html" class="project-link" target="_blank" rel="noopener">🪄 Lihat Projek</a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-label="Contact Section">
+        <h2>Contact Me</h2>
+        <form id="contact-form" novalidate>
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" placeholder="Masukan nama anda" aria-label="Masukan nama anda" required />
+            <div class="error" id="name-error"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Masukan email anda" aria-label="Masukan email anda" required />
+            <div class="error" id="email-error"></div>
+
+            <label for="message">Pesan</label>
+            <textarea name="message" id="message" rows="4" placeholder="Masukan pesan anda" aria-label="Masukan pesan anda" required></textarea>
+            <div class="error" id="message-error"></div>
+
+            <button type="submit" aria-label="Kirim pesan">Kirim Pesan</button>
+            <p class="success-msg" id="success-msg" aria-live="polite"></p>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2025 Wahyu Pratama — SMK Plus Pelita Nusantara
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

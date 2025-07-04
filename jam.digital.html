@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jam Digital</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    font-family: 'Orbitron', sans-serif;
+    color: #00ff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #clock {
+    text-align: center;
+    padding:45px;
+    border: 4px solid #000000;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #000000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+  }
+  
+  #clock h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff0000;
+  }
+  
+  #time {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  #time div {
+    background-color: rgba(0, 255, 229, 0.1);
+    padding: 25px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff0000;
+  }
+  
+  #time span:first-child {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff0000;
+  }
+  
+  #time span:last-child {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ff0000;
+  }
+  
+    </style>
+
+  </head>
+  <body>
+    <div id="clock">
+      <h2>Sekarang Pukul</h2>
+      <div id="time">
+        <div><span id="hour">00</span><span> Hours</span></div>
+        <div><span id="minutes">00</span><span> Minutes</span></div>
+        <div><span id="seconds">00</span><span> Seconds</span></div>
+        <div><span id="ampm">AM</span></div>
+      </div>
+    </div>
+
+    <script>
+      function clock() {
+        let hours = document.getElementById("hour");
+        let minutes = document.getElementById("minutes");
+        let seconds = document.getElementById("seconds");
+        let ampm = document.getElementById("ampm");
+
+        let date = new Date();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        let am = "AM";
+
+        if (h >= 12) {
+          am = "PM";
+        }
+
+        if (h > 12) {
+          h = h - 12;
+        }
+
+        // biar jam 00 jadi 12
+        if (h === 0) {
+          h = 12;
+        }
+
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        hours.innerHTML = h;
+        minutes.innerHTML = m;
+        seconds.innerHTML = s;
+        ampm.innerHTML = am;
+      }
+
+      setInterval(clock, 1000);
+      clock(); // supaya langsung tampil saat halaman dibuka
+    </script>
+  </body>
+</html>
